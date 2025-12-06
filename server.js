@@ -98,8 +98,34 @@ app.get('/cars', async (req,res) => {
         console.log('Something went wrong',err)
     }
 
+})
+
+app.get('/cars/:id', async (req,res) => {
+
+    try{
+
+        const {id} = req.params
+
+        const findIdCar = await Cars.findById(id) 
+
+        res.render('cars/newlycreated.ejs',{findIdCar})
+
+
+    }
+
+    catch(error){
+
+        console.log('Something went wrong',err)
+    }
 
 })
+
+
+// Update 
+
+
+
+
 
 
 

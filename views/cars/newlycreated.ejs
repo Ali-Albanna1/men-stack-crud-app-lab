@@ -7,9 +7,25 @@
 </head>
 <body>
 
-    <h1></h1>
+    <h1>new car created </h1>
 
-    
+         <% if(findIdCar.imageurl) {%>
+
+             <img src="<%= findIdCar.imageurl %>" alt="car image" style="width: 200px;"> 
+        
+        <%} else{ %> 
+            
+            <img src="<%= findIdCar.imageurl %>" alt="Has No Image URL" style="width: 200px;">
+
+            <%}%>
+
+        <p>Model: <%= findIdCar.model %></p>
+
+        <p>Brand: <%= findIdCar.brand  %></p>
+
+        <p>Specification: <%= findIdCar.specs  %></p>
+
+        <p>Rating: <%= findIdCar.rating %></p>
 
 
 </body>
