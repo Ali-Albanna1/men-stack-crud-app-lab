@@ -6,8 +6,11 @@
     <title>Cars Index</title>
 </head>
 <body>
+
+     <%- include('./partials/nav') %>
+     
     <h1>All Cars</h1>
- 
+      
     <% allCars.forEach((oneCar) => { %>
        
         <% if(oneCar.imageurl) {%>

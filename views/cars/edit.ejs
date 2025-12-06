@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update car  info</title>
+</head>
+<body>
+
+      <%- include('./partials/nav') %>
+
+    <h1>Edit <%= foundCar.model  %></h1>
+
+     
+    <form action="/cars/<%= foundCar._id %>?_method=PUT" method="post">
+
+    <label for="model">Model name :</label>
+    <input type="text" name="model" id="model" value="<%= foundCar.model %>">
+
+    <label for="brand">brand:</label>
+    <input type="text" name="brand" id="barnd" value="<%= foundCar.brand  %>">
+
+    <label for="specs">specifications:</label>
+    <input type="text" name="specs" id="specs" value="<%= foundCar.specs  %>">
+
+    <label for="rating">rating:</label>
+    <input type="text" name="rating" id="rating" value="<%= foundCar.rating %>">
+
+     <label for="imageurl">image url:</label>
+    <input type="text" name="imageurl" id="imageurl" value="<%= foundCar.imageurl %>">
+
+
+     <button type="submit">Edit</button>
+
+    </form>
+
+</body>
+</html>

@@ -113,7 +113,7 @@ app.get('/cars/:id', async (req,res) => {
 
     }
 
-    catch(error){
+    catch(err){
 
         console.log('Something went wrong',err)
     }
@@ -123,15 +123,63 @@ app.get('/cars/:id', async (req,res) => {
 
 // Update 
 
+app.get('/cars/:id/edit', async (req,res)=>{
 
 
+    try {
+
+        const {id} = req.params
+
+        const foundCar = await Cars.findById(id) 
+
+        res.render('cars/edit.ejs',{foundCar})
+
+    }
+
+    catch(err){
+
+       console.log('Something went wrong',err)
+    }
+})
 
 
+app.put('/cars/:id', async (req,res) => {
+
+    try{
+         
+        const {id}= req.params
+        
+    const updateCar =  await Cars.findByIdAndUpdate(id, req.body)
+
+    res.redirect('/cars/'+ updateCar._id)
+    }
+
+     catch(err){
+
+       console.log('Something went wrong',err)
+    }
+
+})
 
 
+// Delete
+app.delete('/cars/:id', async (req,res) => {
+
+   try{
+     const {id} = req.params
+    await Cars.findByIdAndDelete(id)
+
+    res.redirect('/cars')
+
+   }
+
+    catch(err){
+
+       console.log('Something went wrong',err)
+    }
 
 
-
+})
 
 
 

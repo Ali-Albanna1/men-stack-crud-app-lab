@@ -6,7 +6,7 @@
     <title>Newely created car</title>
 </head>
 <body>
-
+     <%- include('./partials/nav') %>
     <h1>new car created </h1>
 
          <% if(findIdCar.imageurl) {%>
@@ -26,6 +26,14 @@
         <p>Specification: <%= findIdCar.specs  %></p>
 
         <p>Rating: <%= findIdCar.rating %></p>
+
+        <a href="/cars/<%= findIdCar._id %>/edit">Edit Car</a>
+
+        <form action="/cars/<%= findIdCar._id %>?_method=DELETE" method="post">
+
+            <button type="submit">Delete Car</button>
+
+        </form>
 
 
 </body>
