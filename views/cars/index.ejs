@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cars Index</title>
+</head>
+<body>
+    <h1>All Cars</h1>
+ 
+    <% allCars.forEach((oneCar) => { %>
+       
+        <% if(oneCar.imageurl) {%>
+
+             <img src="<%= oneCar.imageurl %>" alt="car image" style="width: 200px;"> 
+        
+        <%} else{ %> 
+            
+            <img src="<%= oneCar.imageurl %>" alt="Has No Image URL" style="width: 200px;">
+
+            <%}%>
+
+        <p>Model: <%= oneCar.model %></p>
+
+        <p>Brand: <%= oneCar.brand  %></p>
+
+        <p>Specification: <%= oneCar.specs  %></p>
+
+        <p>Rating: <%= oneCar.rating %></p>
+
+        <% }) %>
+
+
+        
+
+</body>
+</html>

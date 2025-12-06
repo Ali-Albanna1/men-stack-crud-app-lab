@@ -5,6 +5,7 @@ require("dotenv").config() // allows us to use the .env variables
 const mongoose = require("mongoose") // importing mongoose
 const morgan = require("morgan")
 const methodOverride = require("method-override")
+const Cars = require("./models/car")
 
 
 
@@ -35,14 +36,71 @@ conntectToDB() // connect to database
 
 
 
-
-
-
-
-
-
-
 // Routes go here
+
+app.get('/',(req,res) => {
+   try{
+    res.render('home.ejs') }
+
+     catch(error){
+        console.log("Error Occured",error)
+    }
+})
+
+
+//CREATE 
+
+app.get('/cars/new', (req,res) => {
+
+    try{
+        res.render('cars/new.ejs')
+
+    }
+    catch(err){
+
+        console.log('Something went wrong',err)
+    }
+})
+
+app.post('/cars', async (req,res) => {
+  
+    try{
+    
+     const createdCar = await Cars.create(req.body)
+
+     res.redirect('/cars/'+createdCar._id)
+    }
+     
+     catch(err){
+
+        console.log('Something went wrong',err)
+    }
+    
+
+})
+
+
+//Read 
+
+app.get('/cars', async (req,res) => {
+
+    try{
+    
+         const allCars = await Cars.find()
+
+         res.render('cars/index.ejs',{allCars})
+
+         
+    } 
+
+     catch(err){
+
+        console.log('Something went wrong',err)
+    }
+
+
+})
+
 
 
 

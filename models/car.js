@@ -1,6 +1,7 @@
 const mongoose =require('mongoose')
 const { type } = require('os')
 
+
 const carsSchema = new mongoose.Schema ({
 
     model :{
@@ -12,16 +13,19 @@ const carsSchema = new mongoose.Schema ({
         type: String,
         require: true
     },
-    specifications: {
-        type: [String]
+    specs: {
+        type: String
     },
     rating: {
         
         type: String,
         enum:['bad','good','verygood','excellent'],
         default: 'good'
+    },
+    imageurl: {
+
+       type: String
     }
-    
     
 })
 
